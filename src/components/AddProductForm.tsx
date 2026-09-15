@@ -10,17 +10,21 @@ export default function AddProductForm() {
     e.preventDefault();
     setLoading(true);
     
-    const formData = new FormData(e.currentTarget);
-    const result = await addProduct(formData);
-    
-    if (result?.error) {
-      alert("⚠️ Erro ao salvar:\n" + result.error);
-    } else if (result?.success) {
-      alert("✅ Produto salvo com sucesso!");
-      (e.target as HTMLFormElement).reset();
+    try {
+      const formData = new FormData(e.currentTarget);
+      const result = await addProduct(formData);
+      
+      if (result?.error) {
+        alert("⚠️ Erro ao salvar:\n" + result.error);
+      } else if (result?.success) {
+        alert("✅ Produto salvo com sucesso!");
+        (e.target as HTMLFormElement).reset();
+      }
+    } catch (error: any) {
+      alert("❌ Ocorreu um erro fatal de conexão. Servidor não respondeu corretamente: " + error.message);
+    } finally {
+      setLoading(false);
     }
-    
-    setLoading(false);
   };
 
   return (
