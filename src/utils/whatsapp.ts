@@ -1,7 +1,8 @@
 import { CartItem } from '../store/cartStore';
 
 export const generateWhatsAppLink = (items: CartItem[]) => {
-  const phoneNumber = "5511999999999"; // Substitua pelo seu número do WhatsApp
+  const phoneNumber = "5511999999999"; // Substitua pelo seu número real do WhatsApp
+  const siteUrl = "https://m2street.netlify.app";
 
   if (items.length === 0) return `https://wa.me/${phoneNumber}`;
 
@@ -13,7 +14,8 @@ export const generateWhatsAppLink = (items: CartItem[]) => {
     total += itemTotal;
     message += `${index + 1}. *${item.name}*\n`;
     message += `Tamanho: ${item.size} | Qtd: ${item.quantity}\n`;
-    message += `Subtotal: R$ ${itemTotal.toFixed(2).replace('.', ',')}\n\n`;
+    message += `Subtotal: R$ ${itemTotal.toFixed(2).replace('.', ',')}\n`;
+    message += `Link: ${siteUrl}/produto/${item.slug}\n\n`;
   });
 
   message += `*Total da Compra: R$ ${total.toFixed(2).replace('.', ',')}*\n\n`;

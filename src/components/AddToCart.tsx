@@ -19,6 +19,7 @@ export default function AddToCart({ product }: { product: any }) {
     addItem({
       product_id: product.id,
       name: product.name,
+      slug: product.slug,
       price: product.price,
       size: selectedSize,
       quantity: 1
