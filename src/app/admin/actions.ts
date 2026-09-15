@@ -3,15 +3,14 @@
 import { getSupabaseAdmin } from '@/lib/supabase';
 import { revalidatePath } from 'next/cache';
 
-export async function addProduct(formData: FormData): Promise<void> {
+export async function addProduct(formData: FormData) {
   const name = formData.get('name') as string;
   const price = formData.get('price') as string;
   const category = formData.get('category') as string;
   const image = formData.get('image') as File;
   
   if (!name || !price || !category || !image || image.size === 0) {
-    console.error('Preencha todos os campos e selecione uma imagem.');
-    return;
+    return { error: 'Preencha todos os campos e selecione uma imagem.' };
   }
 
   const supabase = getSupabaseAdmin();
@@ -27,7 +26,7 @@ export async function addProduct(formData: FormData): Promise<void> {
 
   if (uploadError) {
     console.error("Erro no upload:", uploadError);
-    return;
+    return { error: `Erro no upload: ${uploadError.message}` };
   }
 
   // Pegar URL pública da imagem
@@ -48,12 +47,14 @@ export async function addProduct(formData: FormData): Promise<void> {
 
   if (dbError) {
     console.error("Erro no banco:", dbError);
-    return;
+    return { error: `Erro no banco: ${dbError.message}` };
   }
 
   // Atualizar a página inicial para mostrar o novo produto
   revalidatePath('/');
   revalidatePath('/admin');
+  
+  return { success: true };
 }
 
 export async function toggleAvailability(id: string, currentStatus: boolean) {

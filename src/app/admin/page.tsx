@@ -1,6 +1,7 @@
 import AdminAuthGuard from '@/components/AdminAuthGuard';
+import AddProductForm from '@/components/AddProductForm';
 import { supabase } from '@/lib/supabase';
-import { addProduct, deleteProduct, toggleAvailability } from './actions';
+import { deleteProduct, toggleAvailability } from './actions';
 import { revalidatePath } from 'next/cache';
 
 // Revalidar a página a cada request no painel (para forçar atualização dos dados na tabela)
@@ -37,57 +38,7 @@ export default async function AdminDashboard() {
               Cadastrar Produto
             </h2>
             
-            <form action={addProduct} className="flex flex-col gap-5">
-              <div className="flex flex-col gap-2">
-                <label className="text-[10px] text-gray-400 uppercase tracking-widest">Foto do Produto</label>
-                <input 
-                  type="file" 
-                  name="image" 
-                  accept="image/jpeg, image/png, image/webp"
-                  required
-                  className="text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-none file:border-0 file:text-xs file:font-strong file:uppercase file:bg-[#C49B51] file:text-black hover:file:bg-white cursor-pointer"
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-[10px] text-gray-400 uppercase tracking-widest">Nome do Produto</label>
-                <input 
-                  type="text" 
-                  name="name" 
-                  required
-                  placeholder="Ex: Camiseta Oversized Preta"
-                  className="bg-black border border-[#222] p-3 text-sm focus:border-[#C49B51] focus:outline-none text-white"
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-[10px] text-gray-400 uppercase tracking-widest">Preço (R$)</label>
-                <input 
-                  type="text" 
-                  name="price" 
-                  required
-                  placeholder="Ex: 99,90"
-                  className="bg-black border border-[#222] p-3 text-sm focus:border-[#C49B51] focus:outline-none text-white"
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-[10px] text-gray-400 uppercase tracking-widest">Categoria</label>
-                <select 
-                  name="category" 
-                  required
-                  className="bg-black border border-[#222] p-3 text-sm focus:border-[#C49B51] focus:outline-none text-white"
-                >
-                  <option value="Camisas">Camisas</option>
-                  <option value="Bermudas">Bermudas</option>
-                  <option value="Bonés">Bonés</option>
-                </select>
-              </div>
-
-              <button type="submit" className="w-full bg-[#C49B51] text-black font-strong uppercase tracking-widest text-sm py-4 mt-2 hover:bg-white transition-colors">
-                Salvar Produto
-              </button>
-            </form>
+            <AddProductForm />
           </section>
 
           {/* COLUNA DIREITA: LISTA DE PRODUTOS */}
