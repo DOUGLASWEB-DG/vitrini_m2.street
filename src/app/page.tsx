@@ -7,9 +7,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Mock estático de produtos para remover a necessidade de backend (Supabase)
 const MOCK_PRODUCTS = [
-  { id: '1', name: 'Camisa Oversized Black', price: 149.90, category: 'Camisas', is_available: true, slug: 'camisa-oversized-black', image_url: '/Identidade visual M2 Street/3.png' },
-  { id: '2', name: 'Bermuda Street Comfort', price: 159.90, category: 'Bermudas', is_available: true, slug: 'bermuda-street-comfort', image_url: '/Identidade visual M2 Street/6.png' },
-  { id: '3', name: 'Boné M2 Classic', price: 89.90, category: 'Bonés', is_available: true, slug: 'bone-m2-classic', image_url: '/Identidade visual M2 Street/14.png' }
+  { id: '1', name: 'Camisa Oversized Black', price: 149.90, category: 'Camisas', is_available: true, slug: 'camisa-oversized-black', image_url: '/Identidade visual M2 Street/img.png' },
+  { id: '3', name: 'Camisa Oversized White', price: 149.90, category: 'Camisas', is_available: true, slug: 'camisa-oversized-white', image_url: '/Identidade visual M2 Street/img.png' },
+  { id: '4', name: 'Bermuda Street Comfort Black', price: 159.90, category: 'Bermudas', is_available: true, slug: 'bermuda-street-comfort-black', image_url: '/Identidade visual M2 Street/img.png' },
+  { id: '5', name: 'Bermuda Street Comfort White', price: 159.90, category: 'Bermudas', is_available: true, slug: 'bermuda-street-comfort-white', image_url: '/Identidade visual M2 Street/img.png' },
+  { id: '6', name: 'Boné M2 Classic Blue', price: 89.90, category: 'Bonés', is_available: true, slug: 'bone-m2-classic-blue', image_url: '/Identidade visual M2 Street/img.png' },
+  { id: '7', name: 'Boné M2 Classic Black', price: 89.90, category: 'Bonés', is_available: true, slug: 'bone-m2-classic-black', image_url: '/Identidade visual M2 Street/img.png' }
 ];
 
 export default function Home() {
@@ -104,7 +107,7 @@ export default function Home() {
           
           {/* --- MOBILE: Falling Slide Animation --- */}
           <div className="sm:hidden relative h-[180px] flex items-center justify-center">
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
               <motion.div 
                 key={activeBenefit}
                 initial={{ opacity: 0, y: -40 }}
@@ -272,7 +275,7 @@ export default function Home() {
                           
                           {product.is_available && (
                             <a 
-                              href={`https://wa.me/5500000000000?text=${encodeURIComponent(`Olá! Tenho interesse no produto: ${product.name} (R$ ${Number(product.price).toFixed(2).replace('.', ',')}). Podemos fechar?`)}`}
+                              href={`https://wa.me/5569992917694?text=${encodeURIComponent(`Olá! Tenho interesse no produto: ${product.name} (R$ ${Number(product.price).toFixed(2).replace('.', ',')}). Podemos fechar?`)}`}
                               target="_blank" 
                               rel="noreferrer"
                               className="opacity-100 sm:opacity-0 transform translate-y-0 sm:translate-y-2 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 transition-all duration-500 font-strong uppercase text-[9px] tracking-widest text-black bg-[#D4AF37] sm:bg-transparent sm:text-[#D4AF37] py-2 sm:py-0 sm:border-b sm:border-[#D4AF37] sm:pb-1 text-center w-full sm:w-auto active:scale-95"
