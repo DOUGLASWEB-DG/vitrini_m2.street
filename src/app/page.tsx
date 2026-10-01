@@ -34,7 +34,7 @@ export default function Home() {
   // Animações
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
   };
 
   const staggerContainer = {
@@ -51,7 +51,7 @@ export default function Home() {
         <motion.div 
           initial={{ scale: 1 }}
           animate={{ scale: 1.05 }}
-          transition={{ duration: 15, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+          transition={{ duration: 15, repeat: Infinity, repeatType: "reverse" }}
           className="absolute inset-0 bg-[url('/Identidade%20visual%20M2%20Street/fundo-effect.png')] bg-cover bg-center opacity-90"
         ></motion.div>
         
@@ -91,7 +91,7 @@ export default function Home() {
         {/* Efeito Escada Rolante (bordas laterais) no fundo */}
         <motion.div 
           animate={{ backgroundPositionY: ["0%", "100%"] }}
-          transition={{ duration: 15, ease: "linear", repeat: Infinity }}
+          transition={{ duration: 15, repeat: Infinity }}
           className="absolute inset-0 opacity-[0.05] sm:opacity-[0.07] pointer-events-none mix-blend-luminosity"
           style={{ 
              backgroundImage: "url('/Identidade visual M2 Street/bordas laterais.png')",
@@ -110,7 +110,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: -40 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 40 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                transition={{ duration: 0.5 }}
                 className="absolute flex flex-col items-center justify-center text-center"
               >
                 <img 
@@ -199,7 +199,7 @@ export default function Home() {
               <motion.div 
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 0.08, y: 0 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
+                transition={{ duration: 1.5 }}
                 viewport={{ once: true }}
                 className="absolute inset-0 pointer-events-none flex items-center justify-center z-0 overflow-hidden"
               >
@@ -298,7 +298,7 @@ export default function Home() {
         {/* Fundo com efeito de Pan Horizontal (Esquerda para Direita) */}
         <motion.div 
           animate={{ backgroundPositionX: ["0%", "100%"] }}
-          transition={{ duration: 30, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+          transition={{ duration: 30, repeat: Infinity, repeatType: "reverse" }}
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{ 
              backgroundImage: "url('/Identidade visual M2 Street/fundo-effect.png')",
@@ -378,7 +378,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 1.5 }}
             className="w-full flex justify-center mb-24"
           >
             <img 
