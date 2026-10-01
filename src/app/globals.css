@@ -4,6 +4,10 @@
   --font-strong: var(--font-strong);
   --font-squeeze: var(--font-squeeze);
   --font-body: var(--font-body);
+  --font-script: var(--font-script);
+  --color-m2-gold: #D4AF37;
+  --color-m2-darkgold: #A68B5B;
+  --color-m2-gray: #1A1A1A;
 }
 
 html {
@@ -12,7 +16,7 @@ html {
 
 body {
   color: white;
-  background: #050505;
+  background: #000000;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
